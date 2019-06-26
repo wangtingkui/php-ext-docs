@@ -1,0 +1,9 @@
+[submodule "phalcon"]
+	path = phalcon
+	url = https://github.com/phalcon/ide-stubs.git
+[submodule "swoole"]
+	path = swoole
+	url = https://github.com/eaglewu/swoole-ide-helper.git
+[submodule "rdkafka"]
+	path = rdkafka
+	url = https://github.com/kwn/php-rdkafka-stubs.git
