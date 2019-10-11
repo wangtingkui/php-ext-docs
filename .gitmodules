@@ -7,3 +7,6 @@
 [submodule "rdkafka"]
 	path = rdkafka
 	url = https://github.com/kwn/php-rdkafka-stubs.git
+[submodule "yaf"]
+	path = yaf
+	url = https://github.com/elad-yosifon/php-yaf-doc.git
