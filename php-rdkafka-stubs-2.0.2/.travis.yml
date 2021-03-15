@@ -1,0 +1,29 @@
+language: php
+
+dist: bionic
+
+php:
+  - 7.3
+
+before_install:
+  - sudo apt-get -y install gcc scala zookeeperd git
+  - git clone --depth 1 --branch v1.1.0 https://github.com/edenhill/librdkafka.git
+  - cd librdkafka
+  - ./configure
+  - make
+  - sudo make install
+  - cd ..
+  - wget https://www-eu.apache.org/dist/kafka/2.3.0/kafka_2.11-2.3.0.tgz
+  - tar zxf kafka_2.11-2.3.0.tgz
+
+install:
+  - pecl install rdkafka
+  - composer self-update
+  - composer install
+
+before_script:
+  - nohup kafka_2.11-2.3.0/bin/kafka-server-start.sh kafka_2.11-2.3.0/config/server.properties > kafka_2.11-2.3.0/kafka.log 2>&1 &
+  - sleep 10
+
+script:
+  - make build
